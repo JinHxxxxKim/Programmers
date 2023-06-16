@@ -30,25 +30,34 @@ public class Main {
 //        solution7(seq2, 5);
 //        solution7(seq3, 6);
         // 과제 진행하기
-        String[][] plan1 = new String[][]{
-                {"korean", "11:40", "30"},
-                {"english", "12:10", "20"},
-                {"math", "12:30", "40"}
-        };
-        String[][] plan2 = new String[][]{
-                {"science", "12:40", "50"},
-                {"music", "12:20", "40"},
-                {"history", "14:00", "30"},
-                {"computer", "12:30", "100"}
-        };
-        String[][] plan3 = new String[][]{
-                {"aaa", "12:00", "20"},
-                {"bbb", "12:10", "30"},
-                {"ccc", "12:40", "10"}
-        };
-        solution8(plan1);
-        solution8(plan2);
-        solution8(plan3);
+//        String[][] plan1 = new String[][]{
+//                {"korean", "11:40", "30"},
+//                {"english", "12:10", "20"},
+//                {"math", "12:30", "40"}
+//        };
+//        String[][] plan2 = new String[][]{
+//                {"science", "12:40", "50"},
+//                {"music", "12:20", "40"},
+//                {"history", "14:00", "30"},
+//                {"computer", "12:30", "100"}
+//        };
+//        String[][] plan3 = new String[][]{
+//                {"aaa", "12:00", "20"},
+//                {"bbb", "12:10", "30"},
+//                {"ccc", "12:40", "10"}
+//        };
+//        solution8(plan1);
+//        solution8(plan2);
+//        solution8(plan3);
+//    // 광물 캐기
+//        int[] picks1 = new int[]{1, 3, 2};
+//        String[] minerals1 = new String[]{"diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"};
+//        int[] picks2 = new int[]{0, 1, 1};
+//        String[] minerals2 = new String[]{"diamond", "diamond", "diamond", "diamond", "diamond", "iron", "iron", "iron", "iron", "iron", "diamond"};
+//        solution9(picks1, minerals1);
+//        solution9(picks2, minerals2);
+        // 당구 연습
+        solution10(10, 10, 3, 7, new int[][]{{7, 7}, {2, 7}, {7, 3}});
     }
     // 달리기 경주
     public static String[] solution1(String[] players, String[] callings) {
@@ -434,5 +443,145 @@ public class Main {
         public int getRequiredTime() {
             return requiredTime;
         }
+    }
+    // 광물 캐기
+    public static int solution9(int[] picks, String[] minerals) {
+        int answer = 0;
+
+        int diamondCnt = 0;
+        int ironCnt = 0;
+        int stoneCnt = 0;
+
+        int mineralSum = 0;
+        int picksTotalNum = 0;
+
+        for (int pick : picks) {
+            picksTotalNum += pick;
+        }
+
+        ArrayList<MineralSet> mineralList = new ArrayList<>();
+
+        for (int i = 0; i < minerals.length; i++) {
+            String mineral = minerals[i];
+
+            if (mineral.equals("diamond")) {
+                mineralSum += 25;
+                diamondCnt++;
+            } else if (mineral.equals("iron")) {
+                mineralSum += 5;
+                ironCnt++;
+            } else {
+                mineralSum += 1;
+                stoneCnt++;
+            }
+
+            if (i % 5 == 4) {
+                mineralList.add(new MineralSet(mineralSum, diamondCnt, ironCnt, stoneCnt));
+
+                diamondCnt = 0;
+                ironCnt = 0;
+                stoneCnt = 0;
+                mineralSum = 0;
+
+                if (mineralList.size() == picksTotalNum) {
+                    break;
+                }
+            }
+        }
+
+        if (mineralSum != 0) {
+            mineralList.add(new MineralSet(mineralSum, diamondCnt, ironCnt, stoneCnt));
+        }
+
+        mineralList.sort(Collections.reverseOrder());
+
+        for (MineralSet mineralSet : mineralList) {
+            System.out.println("mineralSet = " + mineralSet.fatigue);
+        }
+
+        for (MineralSet currMineralSet : mineralList) {
+            for (int i = 0; i < 3; ++i) {
+                if (picks[i] == 0) { // 해당 곡괭이가 없는 경우
+                    continue;
+                }
+                // 곡괭이가 있을 경우
+                switch (i) {
+                    case 0: // 다이아 곡괭이
+                        answer = answer
+                                + currMineralSet.numOfDiamond
+                                + currMineralSet.numOfIron
+                                + currMineralSet.numOfStone;
+                        break;
+                    case 1: // 철 곡괭이
+                        answer = answer
+                                + currMineralSet.numOfDiamond * 5
+                                + currMineralSet.numOfIron
+                                + currMineralSet.numOfStone;
+                        break;
+                    case 2: // 돌 곡괭이
+                        answer = answer
+                                + currMineralSet.numOfDiamond * 25
+                                + currMineralSet.numOfIron * 5
+                                + currMineralSet.numOfStone;
+                        break;
+                }
+                picks[i]--;
+                break;
+            }
+        }
+        System.out.println("answer = " + answer);
+        return answer;
+    }
+    static class MineralSet implements Comparable<MineralSet>{
+        int fatigue;
+        int numOfDiamond;
+        int numOfIron;
+        int numOfStone;
+        public MineralSet(int fatigue, int numOfDiamond, int numOfIron, int numOfStone) {
+            this.fatigue = fatigue;
+            this.numOfDiamond = numOfDiamond;
+            this.numOfIron = numOfIron;
+            this.numOfStone = numOfStone;
+        }
+
+        @Override
+        public int compareTo(MineralSet mineralSet) {
+            return this.fatigue - mineralSet.fatigue;
+        }
+    }
+    // 당구 연습
+    public static int[] solution10(int m, int n, int startX, int startY, int[][] balls) {
+        int[] answer = new int[balls.length];
+        int cnt = 0;
+        for (int[] ball : balls) {
+            int destX = ball[0];
+            int destY = ball[1];
+            int dist = 0;
+            //좌측 y축
+            int candidate1 = (int)(Math.pow(startX + destX, 2) + Math.pow(startY - destY, 2));
+            //우측 y축
+            int candidate2 = (int) (Math.pow(2 * m - startX - destX, 2) + Math.pow(startY - destY, 2));
+            //위쪽 x축
+            int candidate3 = (int)(Math.pow(startX - destX, 2) + Math.pow(startY + destY, 2));
+            //아래측 x축
+            int candidate4 = (int) (Math.pow(2 * n - startY - destY, 2) + Math.pow(startX - destX, 2));
+
+            dist = Math.max(candidate1, candidate2);
+            dist = Math.min(dist, candidate3);
+            dist = Math.min(dist, candidate4);
+//            if (destY == startY) {
+//                dist = Math.min(candidate3, candidate4);
+//            } else if (destX == startX) {
+//                dist = Math.min(candidate1, candidate2);
+//            } else {
+//                dist = Math.max(candidate1, candidate2);
+//                dist = Math.min(dist, candidate3);
+//                dist = Math.min(dist, candidate4);
+//            }
+            answer[cnt++] = dist;
+        }
+        System.out.println("Arrays.toString(answer) = " + Arrays.toString(answer));
+
+        return answer;
     }
 }
