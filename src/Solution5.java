@@ -7,7 +7,6 @@ public class Solution5 {
     public static int solution5(int[][] targets) {
         int answer = 0;
         Arrays.sort(targets,(a, b)->(a[0]-b[0]));
-
         boolean[] isClear = new boolean[targets.length];
         int targetNum = 0;
         while (targetNum < targets.length) {
