@@ -23,15 +23,7 @@ public class Solution10 {
             dist = Math.max(candidate1, candidate2);
             dist = Math.min(dist, candidate3);
             dist = Math.min(dist, candidate4);
-//            if (destY == startY) {
-//                dist = Math.min(candidate3, candidate4);
-//            } else if (destX == startX) {
-//                dist = Math.min(candidate1, candidate2);
-//            } else {
-//                dist = Math.max(candidate1, candidate2);
-//                dist = Math.min(dist, candidate3);
-//                dist = Math.min(dist, candidate4);
-//            }
+
             answer[cnt++] = dist;
         }
         System.out.println("Arrays.toString(answer) = " + Arrays.toString(answer));
