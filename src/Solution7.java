@@ -11,7 +11,6 @@ public class Solution7 {
         int tempEnd;
 
         int sum = 0;
-
         for (tempEnd = 0; tempEnd < sequence.length; ++tempEnd) {
             sum += sequence[tempEnd];
 
