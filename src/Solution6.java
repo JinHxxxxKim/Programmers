@@ -6,7 +6,6 @@ public class Solution6 {
         long answer = 0;
         int r2_yMax = 0;
         int r1_yMax = 0;
-
         for (int x = 1; x < r2; ++x) {
             r2_yMax = (int) Math.floor(Math.sqrt(Math.pow(r2, 2) - Math.pow(x, 2)));
             if (x >= r1) {
