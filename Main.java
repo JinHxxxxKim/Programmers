@@ -49,9 +49,4 @@ public class Main {
         Solution11.solution11(new String[]{"...D..R", ".D.G...", "....D.D", "D....D.", "..D...."});
         Solution11.solution11(new String[]{".D.R", "....", ".G..", "...D"});
     }
-
-
-
-
-
 }
