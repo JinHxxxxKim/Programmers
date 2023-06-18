@@ -11,7 +11,6 @@ public class Solution9 {
         int diamondCnt = 0;
         int ironCnt = 0;
         int stoneCnt = 0;
-
         int mineralSum = 0;
         int picksTotalNum = 0;
 
