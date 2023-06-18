@@ -79,7 +79,6 @@ public class Solution11 {
                 }
             }
         }
-
         if (dist[destRow * colSize + destCol] == 0) {
             answer = -1;
         } else {
