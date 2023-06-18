@@ -11,7 +11,6 @@ public class Solution4 {
         for (int i = 0; i < rowSize; ++i) {
             backGround[i] = wallpaper[i].toCharArray();
         }
-
         int lux = -1;
         int luy = -1;
         int rdx = -1;
