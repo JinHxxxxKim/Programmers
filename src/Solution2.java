@@ -20,7 +20,6 @@ public class Solution2 {
                 answer[numOfPhoto]+=map.get(currPhoto[numOfPeople]);
             }
         }
-        System.out.println("answer = " + Arrays.toString(answer));
         return answer;
     }
 }
