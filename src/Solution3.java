@@ -9,7 +9,6 @@ public class Solution3 {
 
         int currRow = -1;
         int currCol = -1;
-
         int rowSize = park.length;
         int colSize = park[0].length();
 
