@@ -19,7 +19,6 @@ public class Solution10 {
             int candidate3 = (int) (Math.pow(2 * n - startY - destY, 2) + Math.pow(startX - destX, 2));
             //아래측 x축
             int candidate4 = (int) (Math.pow(startX - destX, 2) + Math.pow(startY + destY, 2));
-
             if (destY == startY) {
                 dist = Math.min(candidate3, candidate4);
                 if (destX > startX) {
