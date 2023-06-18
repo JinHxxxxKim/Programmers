@@ -26,7 +26,6 @@ public class Solution8 {
         for (int i = 0; i < hwList.length; ++i) {
             Homework currHomework = hwList[i];
             currTime = currHomework.getStartTime();
-
             if (i < hwList.length - 1) { // 마지막 과제가 아닌 경우
                 int nextHwStartTime = hwList[i + 1].getStartTime();
                 if (currTime + currHomework.getRequiredTime() < nextHwStartTime) {
