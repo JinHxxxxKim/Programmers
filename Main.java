@@ -48,5 +48,8 @@ public class Main {
         // 리코쳇 로봇
         Solution11.solution11(new String[]{"...D..R", ".D.G...", "....D.D", "D....D.", "..D...."});
         Solution11.solution11(new String[]{".D.R", "....", ".G..", "...D"});
+        // 미로 탈출
+        Solution12.solution12(new String[]{"SOOOL", "XXXXO", "OOOOO", "OXXXX", "OOOOE"});
+        Solution12.solution12(new String[]{"LOOXS", "OOOOX", "OOOOO", "OOOOO", "EOOOO"});
     }
 }
