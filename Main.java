@@ -55,5 +55,8 @@ public class Main {
         Solution13.solution13(new String[][]{{"15:00", "17:00"}, {"16:40", "18:20"}, {"14:20", "15:20"}, {"14:10", "19:20"}, {"18:20", "21:20"}});
         Solution13.solution13(new String[][]{{"09:10", "10:10"}, {"10:20", "12:20"}});
         Solution13.solution13(new String[][]{{"10:20", "12:30"}, {"10:20", "12:30"}, {"10:20", "12:30"}});
+        // 무인도 여행
+        Solution14.solution14(new String[]{"X591X", "X1X5X", "X231X", "1XXX1"});
+        Solution14.solution14(new String[]{"XXX", "XXX", "XXX"});
     }
 }
