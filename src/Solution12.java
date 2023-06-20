@@ -106,7 +106,6 @@ public class Solution12 {
         }
 
         if (sToL == Integer.MAX_VALUE || lToE == Integer.MAX_VALUE) {
-            System.out.println(-1);
             return -1;
         }
 

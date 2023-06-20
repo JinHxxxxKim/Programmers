@@ -51,5 +51,9 @@ public class Main {
         // 미로 탈출
         Solution12.solution12(new String[]{"SOOOL", "XXXXO", "OOOOO", "OXXXX", "OOOOE"});
         Solution12.solution12(new String[]{"LOOXS", "OOOOX", "OOOOO", "OOOOO", "EOOOO"});
+        // 호텔 대실
+        Solution13.solution13(new String[][]{{"15:00", "17:00"}, {"16:40", "18:20"}, {"14:20", "15:20"}, {"14:10", "19:20"}, {"18:20", "21:20"}});
+        Solution13.solution13(new String[][]{{"09:10", "10:10"}, {"10:20", "12:20"}});
+        Solution13.solution13(new String[][]{{"10:20", "12:30"}, {"10:20", "12:30"}, {"10:20", "12:30"}});
     }
 }
