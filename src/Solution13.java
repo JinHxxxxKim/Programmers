@@ -5,6 +5,8 @@ import java.util.*;
 public class Solution13 {
     // 호텔 대실
     public static int solution13(String[][] book_time) {
+//===================================================================================
+        // 이중 반복문 풀이
 //        int answer = 1;
 //        StringTokenizer st;
 //        int[][] schedule = new int[book_time.length][2];
@@ -38,6 +40,26 @@ public class Solution13 {
 //
 //        System.out.println("answer = " + answer);
 //        return answer;
+//===================================================================================
+        // 우선순위 큐 풀이
+//        Arrays.sort(schedule, (t1, t2) -> t1[0] - t2[0]);
+//        PriorityQueue<Integer> pq = new PriorityQueue<>();
+//
+//        pq.offer(schedule[0][1]);
+//        for (int i = 1; i < book_time.length; ++i) {
+//            if (!pq.isEmpty()) {
+//                if (pq.peek() > schedule[i][0]) {
+//                    answer++;
+//                } else {
+//                    pq.poll();
+//                }
+//            }
+//            pq.offer(schedule[i][1]);
+//        }
+//        System.out.println("answer = " + answer);
+//        return answer;
+//===================================================================================
+        // 누적 합 풀이
         int answer = 1;
         int[] pSum = new int[60 * 24 + 10];
         StringTokenizer st;
@@ -53,21 +75,6 @@ public class Solution13 {
             pSum[i] += pSum[i - 1];
             answer = Math.max(answer, pSum[i]);
         }
-
-//        Arrays.sort(schedule, (t1, t2) -> t1[0] - t2[0]);
-//        PriorityQueue<Integer> pq = new PriorityQueue<>();
-//
-//        pq.offer(schedule[0][1]);
-//        for (int i = 1; i < book_time.length; ++i) {
-//            if (!pq.isEmpty()) {
-//                if (pq.peek() > schedule[i][0]) {
-//                    answer++;
-//                } else {
-//                    pq.poll();
-//                }
-//            }
-//            pq.offer(schedule[i][1]);
-//        }
         System.out.println("answer = " + answer);
         return answer;
     }
