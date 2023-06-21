@@ -61,5 +61,9 @@ public class Main {
         // 뒤에 있는 큰 수 찾기
         Solution15.solution15(new int[]{2, 3, 3, 5});
         Solution15.solution15(new int[]{9, 1, 5, 3, 6, 2});
+        // 숫자 변환하기
+        Solution16.solution(10, 40, 5);
+        Solution16.solution(10, 40, 30);
+        Solution16.solution(2, 5, 4);
     }
 }
