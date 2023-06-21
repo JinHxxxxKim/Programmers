@@ -65,5 +65,7 @@ public class Main {
         Solution16.solution(10, 40, 5);
         Solution16.solution(10, 40, 30);
         Solution16.solution(2, 5, 4);
+        // 시소 짝꿍
+        Solution17.solution(new int[]{100, 180, 360, 100, 270});
     }
 }
