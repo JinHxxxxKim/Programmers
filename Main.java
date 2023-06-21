@@ -58,5 +58,8 @@ public class Main {
         // 무인도 여행
         Solution14.solution14(new String[]{"X591X", "X1X5X", "X231X", "1XXX1"});
         Solution14.solution14(new String[]{"XXX", "XXX", "XXX"});
+        // 뒤에 있는 큰 수 찾기
+        Solution15.solution15(new int[]{2, 3, 3, 5});
+        Solution15.solution15(new int[]{9, 1, 5, 3, 6, 2});
     }
 }
