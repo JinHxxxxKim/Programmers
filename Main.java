@@ -67,5 +67,11 @@ public class Main {
         Solution16.solution(2, 5, 4);
         // 시소 짝꿍
         Solution17.solution(new int[]{100, 180, 360, 100, 270});
+        // 택배 배달과 수거하기
+        Solution18.solution(4, 5, new int[]{1, 0, 3, 1, 2}, new int[]{0, 3, 0, 4, 0});
+        System.out.println("=================");
+        Solution18.solution(2, 7, new int[]{1, 0, 2, 0, 1, 0, 2}, new int[]{0, 2, 0, 1, 0, 2, 0});
+        System.out.println("=================");
+        //Solution18.solution(3, 3, new int[]{10, 10, 10}, new int[]{10, 1, 1});
     }
 }
