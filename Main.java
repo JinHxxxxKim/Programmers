@@ -75,6 +75,7 @@ public class Main {
         Solution19.solution(9999);
         Solution19.solution(16);
         Solution19.solution(95);
-
+        // 유사 칸토어 비트열
+        Solution20.solution(3, 4, 17);
     }
 }
